@@ -1,7 +1,13 @@
-export default function App() {
+import React from "react";
+import SocialMediaAnalytics from "./SocialMediaAnalytics";
+
+
+function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div className="App">
+      <SocialMediaAnalytics />
+    </div>
+  );
 }
+
+export default App;
