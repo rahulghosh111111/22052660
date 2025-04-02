@@ -19,7 +19,7 @@ export default function SocialMediaAnalytics() {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE}/users`);
+      const response = await axios.get(`${API_BASE}/users`, { withCredentials: true });
       setUsers(response.data.users || []);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -31,7 +31,7 @@ export default function SocialMediaAnalytics() {
   const fetchPosts = async (userId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE}/users/${userId}/posts`);
+      const response = await axios.get(`${API_BASE}/users/${userId}/posts`, { withCredentials: true });
       setPosts(response.data.posts || []);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -43,7 +43,7 @@ export default function SocialMediaAnalytics() {
   const fetchComments = async (postId) => {
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE}/posts/${postId}/comments`);
+      const response = await axios.get(`${API_BASE}/posts/${postId}/comments`, { withCredentials: true });
       setComments(response.data.comments || []);
     } catch (error) {
       console.error("Error fetching comments:", error);
@@ -76,6 +76,7 @@ export default function SocialMediaAnalytics() {
 
       const response = await axios.post(`${API_BASE}/posts`, newPost, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true,
       });
 
       console.log("Response:", response.data);
